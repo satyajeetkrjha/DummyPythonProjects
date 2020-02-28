@@ -30,18 +30,11 @@ class Notebook:
             return item
         return None    
         
-    def modify_note(self,note_id,memo):
-        for item in self.notes:
-            if item.id == note_id:
-                item.memo=memo
-                break
+    def modify_memo(self,note_id,memo):
+        self._find_note(note_id).memo = memo
         
-    
     def modify_tags(self,note_id,tags):
-        for item in self.notes:
-            if item.id == note_id:
-                self.tags=tags
-                break
+        self._find_note(note_id).tags = tags
         
     
     def search_text(self,text):
